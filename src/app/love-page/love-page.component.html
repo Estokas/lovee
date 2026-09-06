@@ -1,0 +1,43 @@
+<div class="love-scene">
+  <div class="card">
+    <div class="sparkles" aria-hidden="true">
+      <span>💖</span>
+      <span>✨</span>
+      <span>💞</span>
+    </div>
+
+    <h1>Will you be my girlfriend?</h1>
+
+    <div class="button-stage" aria-label="Choose your answer">
+      <button class="yes-button" type="button" (click)="onYesClick()">
+        Yes 💕
+      </button>
+
+      <button
+        class="no-button"
+        type="button"
+        [style.left]="noButtonStyle['left']"
+        [style.top]="noButtonStyle['top']"
+        [style.transform]="noButtonStyle['transform']"
+        (mouseenter)="moveNoButton()"
+        (click)="moveNoButton()"
+      >
+        No 😢
+      </button>
+    </div>
+  </div>
+
+  <div class="love-overlay" *ngIf="showLoveModal">
+    <div class="love-modal" role="dialog" aria-modal="true" aria-live="polite">
+      <h2 class="love-modal-title">💞 You make me so happy 💞</h2>
+
+      <div class="love-message-list">
+        <div class="love-message" *ngFor="let message of loveMessages">
+          {{ message }}
+        </div>
+      </div>
+
+      <div class="love-heart-line">💖 💗 💘 💝 💞 💓</div>
+    </div>
+  </div>
+</div>
